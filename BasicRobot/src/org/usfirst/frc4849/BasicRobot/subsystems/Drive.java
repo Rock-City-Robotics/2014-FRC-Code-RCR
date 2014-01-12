@@ -32,8 +32,11 @@ public class Drive extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
 
-    public void forward(double speed) {
-        speedControllerLeft.set(speed);
-        speedControllerRight.set(-1 * speed);
+    public void takeJoystick(Joystick one) {
+        robotDrive.arcadeDrive(one);
+    }
+    
+    public void stop() {
+        robotDrive.drive(0, 0);
     }
 }
