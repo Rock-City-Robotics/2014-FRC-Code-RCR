@@ -36,6 +36,7 @@ public class RobotMap {
         
         driveRobotDrive = new RobotDrive(driveSpeedControllerLeft, driveSpeedControllerRight);
 	
+        //driveRobotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
         driveRobotDrive.setSafetyEnabled(true);
         driveRobotDrive.setExpiration(0.1);
         driveRobotDrive.setSensitivity(0.5);
