@@ -13,8 +13,8 @@ import org.usfirst.frc4849.BasicRobot.Robot;
 /**
  *
  */
-public class  ArcadeDrive extends Command {
-    public ArcadeDrive() {
+public class  Forward extends Command {
+    public Forward() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -24,6 +24,8 @@ public class  ArcadeDrive extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+        setTimeout(0.9);
+        Robot.drive.forward(1.0);
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
@@ -34,6 +36,7 @@ public class  ArcadeDrive extends Command {
     }
     // Called once after isFinished returns true
     protected void end() {
+        Robot.drive.forward(0);
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
