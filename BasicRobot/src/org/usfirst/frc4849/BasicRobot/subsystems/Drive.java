@@ -45,10 +45,23 @@ public class Drive extends Subsystem {
         robotDrive.tankDrive(left, right);
     }
     
-    public void takeGamepad(Joystick pad) {
-        double right = pad.getRawAxis(1);
-        double left = pad.getRawAxis(3);
+    public void takeGamepad(Joystick pad, int leftAxis, int rightAxis) {
+        double right = pad.getRawAxis(rightAxis);
+        double left = pad.getRawAxis(leftAxis);
         robotDrive.tankDrive(left, right);
+    }
+    
+    public void lightOn(DigitalInput digIn, DigitalOutput digOut) {
+        boolean a = digIn.get();
+        if (a == true) {
+            digOut.set(true);
+        } else {
+            digOut.set(false);
+        }
+    }
+    
+    public void light(DigitalOutput digOut) {
+        digOut.set(true);
     }
     
     public void stop() {
