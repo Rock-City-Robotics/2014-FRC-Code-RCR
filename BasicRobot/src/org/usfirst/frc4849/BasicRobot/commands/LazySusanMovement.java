@@ -12,11 +12,15 @@ import org.usfirst.frc4849.BasicRobot.Robot;
  * @author Cale
  */
 public class LazySusanMovement extends Command {
-    public LazySusanMovement() {
+    private final double setPoint;
+    
+    public LazySusanMovement(double setPoint) {
+        this.setPoint = setPoint;
         requires(Robot.lazySusan);
     }
     
     protected void initialize() {
+        Robot.lazySusan.setSetpoint(setPoint);
     }
     
     protected void execute() {
@@ -24,7 +28,7 @@ public class LazySusanMovement extends Command {
     }
     
     protected boolean isFinished() {
-        return false;
+        return Math.abs(setPoint - Robot.lazySusan.getPosition()) < 0.025;
     }
     
     protected void end() {
@@ -32,6 +36,7 @@ public class LazySusanMovement extends Command {
     }
     
     protected void interrupted() {
+        
         end();
     }
 }

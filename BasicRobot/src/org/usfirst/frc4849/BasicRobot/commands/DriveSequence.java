@@ -11,6 +11,7 @@
 
 package org.usfirst.frc4849.BasicRobot.commands;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4849.BasicRobot.Robot;
 
@@ -19,6 +20,8 @@ import org.usfirst.frc4849.BasicRobot.Robot;
  */
 public class  DriveSequence extends Command {
 
+    
+    
     public DriveSequence() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -38,9 +41,9 @@ public class  DriveSequence extends Command {
         //Robot.drive.takeJoystick(Robot.oi.getleftjoy(),Robot.oi.getrightjoy());
         
         //For gamepad driving
-        //Robot.drive.takeGamepad(Robot.oi.getgamepad(), 2, 4);
+        Robot.drive.takeGamepad(Robot.oi.getgamepad(), 2, 4);
         
-        Robot.drive.lightOn(Robot.oi.getDigitalInput2(), Robot.oi.getDigitalOutput());
+        //Robot.drive.lightOn(Robot.oi.getDigitalInput2(), Robot.oi.getDigitalOutput());
         //Robot.oi.getDigitalOutput().set(false);
     }
 
