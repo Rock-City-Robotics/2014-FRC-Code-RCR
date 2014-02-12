@@ -43,7 +43,7 @@ public class  DriveSequence extends Command {
         //For gamepad driving
         Robot.drive.takeGamepad(Robot.oi.getgamepad(), 2, 4);
         
-        //Robot.drive.lightOn(Robot.oi.getDigitalInput2(), Robot.oi.getDigitalOutput());
+        Robot.drive.lightOn(Robot.oi.getDigitalInput2());
         //Robot.oi.getDigitalOutput().set(false);
     }
 

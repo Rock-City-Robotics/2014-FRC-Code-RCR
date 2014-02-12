@@ -51,12 +51,12 @@ public class Drive extends Subsystem {
         robotDrive.tankDrive(left, right);
     }
     
-    public void lightOn(DigitalInput digIn, DigitalOutput digOut) {
+    public void lightOn(DigitalInput digIn) {
         boolean a = digIn.get();
         if (a == true) {
-            digOut.set(true);
+            org.usfirst.frc4849.BasicRobot.RobotMap.pneumatics.set(Relay.Value.kOff);
         } else {
-            digOut.set(false);
+            org.usfirst.frc4849.BasicRobot.RobotMap.pneumatics.set(Relay.Value.kOn);
         }
     }
     
