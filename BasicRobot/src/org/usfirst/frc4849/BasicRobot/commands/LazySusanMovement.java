@@ -6,6 +6,7 @@ package org.usfirst.frc4849.BasicRobot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4849.BasicRobot.Robot;
+import org.usfirst.frc4849.BasicRobot.subsystems.LazySusan;
 
 /**
  *
@@ -21,6 +22,7 @@ public class LazySusanMovement extends Command {
     
     protected void initialize() {
         Robot.lazySusan.setSetpoint(setPoint);
+        Robot.lazySusan.enable();
     }
     
     protected void execute() {
@@ -28,11 +30,11 @@ public class LazySusanMovement extends Command {
     }
     
     protected boolean isFinished() {
-        return Math.abs(setPoint - Robot.lazySusan.getPosition()) < 0.025;
+        return Math.abs(setPoint - Robot.lazySusan.getPosition()) < 0.0025;
     }
     
     protected void end() {
-        
+        Robot.lazySusan.disable();
     }
     
     protected void interrupted() {

@@ -18,10 +18,9 @@ public class LazySusan extends PIDSubsystem {
     Counter lSE = RobotMap.LSE;
     
     public LazySusan() {
-        super("LazySusan", 3, .0, 0.0);
+        super("LazySusan", 0.75, .035, 0.0);
         getPIDController().setContinuous(false);
         lSE.start();
-        enable();
     }
     
     public void initDefaultCommand() {
