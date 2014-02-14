@@ -63,8 +63,6 @@ public class OI {
     public DigitalOutput digOUt;
     public DigitalInput swith;
     public DigitalInput tripLever1;
-    public DigitalInput tripLever2;
-    public DigitalInput tripLever3;
     public DigitalInput tripLever4;
     //public static Counter lSE;
     public JoystickButton back;
@@ -92,14 +90,8 @@ public class OI {
         // fully down
         tripLever1 = new DigitalInput(3);
         
-        // almost down
-        tripLever2 = new DigitalInput(4);
-        
-        // almost up
-        tripLever3 = new DigitalInput(5);
-        
         // fully up
-        tripLever4 = new DigitalInput(6);
+        tripLever4 = new DigitalInput(4);
         
         //lSE = new Counter(1);
         

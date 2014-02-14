@@ -25,15 +25,11 @@ public class ArmMovement extends Command {
     protected void initialize() {
         if(back == false & Robot.oi.tripLever4.get() == true) {
             m = 0;
-        } else if(back == false & Robot.oi.tripLever3.get() == true & Robot.oi.tripLever4.get() == false) {
-            m = -0.5;
-        } else if(back == false & Robot.oi.tripLever3.get() == false) {
+        } else if(back == false & Robot.oi.tripLever4.get() == false) {
             m = -1;
         } else if(back == true & Robot.oi.tripLever1.get() == true) {
             m = 0;
-        } else if(back == true & Robot.oi.tripLever2.get() == true & Robot.oi.tripLever1.get() == false) {
-            m = -0.4;
-        } else if(back == true & Robot.oi.tripLever2.get() == false) {
+        } else if(back == true & Robot.oi.tripLever1.get() == false) {
             m = 0.8;
         }
     }
