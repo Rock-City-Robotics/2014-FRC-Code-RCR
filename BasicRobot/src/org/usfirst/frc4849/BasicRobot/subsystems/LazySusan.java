@@ -14,11 +14,11 @@ import org.usfirst.frc4849.BasicRobot.RobotMap;
  * @author Cale
  */
 public class LazySusan extends PIDSubsystem {
-    SpeedController speedControllerLS = RobotMap.driveSpeedControllerLazySusan;
+    SpeedController speedControllerLS = null;
     Counter lSE = RobotMap.LSE;
     
     public LazySusan() {
-        super("LazySusan", 0.75, .035, 0.0);
+        super("LazySusan", 0.5, .035, 0.0);
         getPIDController().setContinuous(false);
         lSE.start();
     }
@@ -37,5 +37,23 @@ public class LazySusan extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         SmartDashboard.putNumber("PID OUT", output);
         speedControllerLS.pidWrite(output);
+    }
+    
+    public void spinCounterClockwise() {
+        double input = returnPIDInput();
+        while(input < 0.486) {
+            speedControllerLS.set(0.2);
+            input = returnPIDInput();
+        }
+        speedControllerLS.set(0);
+    }
+    
+    public void spinClockwise() {
+        double input = returnPIDInput();
+        while(input > 0.89) {
+            speedControllerLS.set(-0.2);
+            input = returnPIDInput();
+        }
+        speedControllerLS.set(0);
     }
 }

@@ -41,10 +41,13 @@ public class  DriveSequence extends Command {
         //Robot.drive.takeJoystick(Robot.oi.getleftjoy(),Robot.oi.getrightjoy());
         
         //For gamepad driving
-        Robot.drive.takeGamepad(Robot.oi.getgamepad(), 2, 4);
+        Robot.drive.takeGamepad(Robot.oi.gamepad, 1, 2, 1.0);
         
-        Robot.drive.lightOn(Robot.oi.getDigitalInput2());
+        Robot.drive.pneumatics(Robot.oi.getDigitalInput2());
         //Robot.oi.getDigitalOutput().set(false);
+        
+        //Robot.drive.checkLazySusan();
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -17,25 +17,32 @@ public class ArmMovement extends Command {
     private final boolean back;
     SpeedController arm = RobotMap.dSCarm;
     private double m;
+    private double q = 1;
     
     public ArmMovement(boolean back) {
         this.back = back;
     }
     
     protected void initialize() {
+        
+    }
+    
+    protected void execute() {
         if(back == false & Robot.oi.tripLever4.get() == true) {
             m = 0;
         } else if(back == false & Robot.oi.tripLever4.get() == false) {
             m = -1;
+        } else if(back == true & Robot.oi.tripLever1.get() == false) {
+            m = 1;
         } else if(back == true & Robot.oi.tripLever1.get() == true) {
             m = 0;
-        } else if(back == true & Robot.oi.tripLever1.get() == false) {
-            m = 0.8;
         }
-    }
-    
-    protected void execute() {
-        arm.set(0.3 * m);
+        if(Robot.oi.trigger2.get() == false) {
+            q = 0.6;
+        } else {
+            q = 1;
+        }
+        arm.set(m * q * 0.9);
     }
     
     protected boolean isFinished() {

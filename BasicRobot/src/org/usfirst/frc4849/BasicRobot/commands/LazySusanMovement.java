@@ -22,7 +22,9 @@ public class LazySusanMovement extends Command {
     
     protected void initialize() {
         Robot.lazySusan.setSetpoint(setPoint);
-        Robot.lazySusan.enable();
+        if(Robot.oi.tripLever4.get() == true) {
+            Robot.lazySusan.enable();
+        }
     }
     
     protected void execute() {
@@ -30,7 +32,13 @@ public class LazySusanMovement extends Command {
     }
     
     protected boolean isFinished() {
-        return Math.abs(setPoint - Robot.lazySusan.getPosition()) < 0.0025;
+        if(Robot.lazySusan.getPosition() < 0.45) {
+            return true;
+        } else if(Robot.lazySusan.getPosition() > 0.94) {
+            return true;
+        } else {
+            return Math.abs(setPoint - Robot.lazySusan.getPosition()) < 0.0025;
+        }
     }
     
     protected void end() {

@@ -15,15 +15,14 @@ import org.usfirst.frc4849.BasicRobot.RobotMap;
 public class Compressor2 extends Command {
     Relay compressor = RobotMap.gripper;
     public Compressor2() {
-        
     }
     
     protected void initialize() {
-        
+        compressor.set(Relay.Value.kOn);
+        System.out.println("Working");
     }
     
     protected void execute() {
-        compressor.set(Relay.Value.kOn);
     }
     
     protected boolean isFinished() {
